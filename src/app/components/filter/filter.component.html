@@ -1,0 +1,59 @@
+<div class="records-count section">
+  <div class="section-head">
+    <h2>{{ recordsCount || 0 }} Records</h2>
+  </div>
+</div>
+
+<div class="active-filters section">
+  <div *ngIf="activeFilters.length">
+    <div class="section-head">
+      <h2>Active Filters</h2>
+    </div>
+    <div class="" *ngFor="let filter of activeFilters; let i = index">
+      <h6 (click)="removeFilter(filter, i)">
+        <span class="badge badge-secondary">{{ filter.label }}</span>
+        {{ filter.value }}
+      </h6>
+    </div>
+  </div>
+  <div *ngIf="!(activeFilters | keyvalue)?.length">
+    No Active Filters
+  </div>
+</div>
+
+
+<div class="filter-list section">
+  <div class="section-head">
+    <h2>Filters</h2>
+  </div>
+
+  <div class="search-bar">
+    <div class="input-group">
+      <input type="text"
+             [(ngModel)]="searchkey"
+             #searchkeyInput="ngModel"
+             name="searchkeyInput"
+             class="form-control"
+             [pattern]="searchPattern"
+             required
+             placeholder="Search records...">
+      <div class="input-group-btn">
+        <button class="btn btn-colored" [disabled]="!searchkeyInput.valid" (click)="searchValue()">
+          Search
+        </button>
+      </div>
+    </div>
+    <span><small>Search input allow numbers only</small></span>
+  </div>
+
+  <div class="date-tree">
+    <div *ngIf="!isLoading">
+      <h5>Date</h5>
+      <tree #treeEl
+        [tree]="filterList"
+        [settings]="{rootIsVisible: false}"
+        (nodeSelected)="addFilter($event)">
+      </tree>
+    </div>
+  </div>
+</div>

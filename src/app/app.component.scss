@@ -1,0 +1,18 @@
+.container-fluid{
+  padding-top: 3%;
+  background-color: #F5F5F5;
+  min-height: 100%;
+}
+
+.ag-theme-balham{
+  margin-top: 2%;
+}
+
+.delete-section{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  .btn{
+    margin-left: 10px;
+  }
+}

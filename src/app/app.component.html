@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <app-filter [recordsCount]="recordsCount" (filter)="setFilters($event)"></app-filter>
+    </div>
+    <div class="col-9">
+      <h2>USA Daily Diesel Spot Price</h2>
+      <tabset #staticTabs>
+        <tab heading="Table">
+          <ag-grid-angular
+              style="width: 100%; height: 350px;"
+              class="ag-theme-balham"
+              [rowData]="records"
+              [columnDefs]="columns"
+              rowSelection="single"
+              [defaultColDef]="{ resizable: true }"
+              (firstDataRendered)="sizeColumnsToFit()"
+              (gridReady)="onGridReady($event)"
+              (cellValueChanged)="editRow($event)">
+          </ag-grid-angular>
+          <div class="delete-section">
+            <span>
+              To delete a record, select the record from the table and
+            </span>
+            <button type="button" class="btn btn-sm btn-danger" (click)="deleteRow()">Delete</button>
+          </div>
+        </tab>
+        <tab heading="Analyze">
+          <app-chart></app-chart>
+        </tab>
+        <tab heading="New Record">
+          <app-add-record [columns]="_cols"></app-add-record>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>

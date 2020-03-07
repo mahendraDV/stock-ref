@@ -1,0 +1,28 @@
+<div class="form-wrapper">
+  <form #addRecordForm="ngForm" (ngSubmit)="onSubmit(addRecordForm.value)">
+    <div class="form-row">
+      <div class="form-group col-12">
+        <label>Date</label>
+       <input type="text"
+              placeholder="Select Date"
+              class="form-control"
+              name="date"
+              required
+              ngModel
+              bsDatepicker>
+     </div>
+    </div>
+     <div class="form-row">
+       <div class="form-group col-4" *ngFor="let c of columns">
+         <label for="c">{{ c }}</label>
+         <input type="text"
+                class="form-control"
+                name="{{c}}"
+                ngModel
+                [pattern]="pattern"
+                placeholder="{{c}} Value">
+       </div>
+     </div>
+    <button type="submit" [disabled]="!columns.length || !addRecordForm.valid" class="btn btn-colored">Add</button>
+  </form>
+</div>

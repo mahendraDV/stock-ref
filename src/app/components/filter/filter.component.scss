@@ -1,0 +1,21 @@
+.section-head {
+    background-color: #2C3F56;
+    border-radius: 3px;
+    padding: .33rem .67rem;
+    position: relative;
+    margin-bottom: 10px;
+    h2{
+      font-size: 1.3rem;
+      color: #FFF;
+    }
+}
+
+.section, .search-bar{
+  margin-bottom: 5%;
+}
+
+.btn-colored{
+  background-color: #2C3F56;
+  color: #FFF;
+  margin-left: 2px;
+}
