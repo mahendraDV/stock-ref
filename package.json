@@ -21,7 +21,7 @@
     "@angular/router": "~7.1.0",
     "ag-grid-angular": "^22.1.1",
     "ag-grid-community": "^22.1.1",
-    "bootstrap": "4.1.1",
+    "bootstrap": "4.4.1",
     "core-js": "^2.5.4",
     "highcharts": "^8.0.2",
     "ng2-tree": "^2.0.0-rc.11",
